@@ -3,7 +3,7 @@ name: Build client
 on:
   push:
     paths:
-      - "Client"
+      - "Client/**"
 
 jobs:
   buildForAllSupportedPlatforms:
