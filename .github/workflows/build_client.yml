@@ -38,14 +38,10 @@ jobs:
           unityVersion: 2020.3.2f1
           buildsPath: build/
 
-      - uses: actions/upload-artifact@v2
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
-
-      - uses: fnkr/github-action-ghr@v1
-        env:
-          GHR_PATH: build/
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GHR_DELETE: true
-          GHR_REPLACE: true
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: build/**
