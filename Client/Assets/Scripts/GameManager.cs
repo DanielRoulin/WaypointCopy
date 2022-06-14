@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Map 0 is waiting room, then it goes counterclockwise from the bottom left.
+    // Map 0 is waiting room, then it goes counterclockwise from the bottom left
     public void MoveToMap(int _mapId)
     {
         if (_mapId == 0)
