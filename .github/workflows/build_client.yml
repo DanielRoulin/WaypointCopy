@@ -41,20 +41,20 @@ jobs:
 
     steps:
       - name: Checkout code
-      uses: actions/checkout@v2
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
           lfs: true
 
       - name: Caching library
-      uses: actions/cache@v2
+        uses: actions/cache@v2
         with:
           path: Client/Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
 
       - name: Building Unity project
-      uses: game-ci/unity-builder@v2
+        uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
@@ -63,7 +63,7 @@ jobs:
           unityVersion: 2020.3.2f1
           buildsPath: build/
 
-        - name: Compress build
+      - name: Compress build
         run: zip -r Client-${{ matrix.targetPlatform }} build/${{ matrix.targetPlatform }}
 
       - name: Upload Release Asset
