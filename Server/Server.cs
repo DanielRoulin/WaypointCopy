@@ -45,7 +45,7 @@ namespace GameServer
             MaxPlayers = _maxPlayers;
             Port = _port;
 
-            Console.WriteLine("Starting server...");
+            Console.WriteLine("Starting server... Hello World!");
             InitializeServerData();
 
             tcpListener = new TcpListener(IPAddress.Any, Port);
